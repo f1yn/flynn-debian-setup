@@ -132,6 +132,6 @@ then
 	# do the final ui updating - prompt to reboot
 	./update.sh
 
-	echo "$sp InStallation is complete. It is recmmended you reboot for all settings to take effect."
+	echo "$sp Installation is complete. It is recommended you reboot for all settings to take effect."
 fi	
 
