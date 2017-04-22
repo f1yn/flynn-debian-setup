@@ -20,7 +20,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	# backup incase stuff goes terribly wrong
 	touch ~/.Xresources # in case bash wants to get fussy about non-existing file
-	cp ~/.Xresources ~/Xresources.old
+	cp ~/.Xresources ~/.Xresources.old
 
 	# remove current configuration if present
 	sed '/! @START-FLYNNCONFIG@/,/! @END-FLYNNCONFIG@/d' ~/.Xresources > tmp; mv tmp ~/.Xresources
@@ -33,7 +33,7 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	# backup incase stuff goes terribly wrong
-	cp ~/.bashrc ~/bashrc.old
+	cp ~/.bashrc ~/.bashrc.old
 
 	# remove current configuration if present
 	sed '/#@START-FLYNNCONFIG@/,/#@END-FLYNNCONFIG@/d' ~/.bashrc > tmp; mv tmp ~/.bashrc
