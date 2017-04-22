@@ -9,7 +9,7 @@ read -p "$sp (Over)write i3 config? (Yy/*) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	cp i3config ~/.i3/config
+	cp config/i3 ~/.i3/config
 fi
 
 read -p "$sp Reconfigure Xresources? (Yy/*)" -n 1 -r
@@ -22,7 +22,7 @@ then
 	# remove current configuration if present
 	sed '/! @START-FLYNNCONFIG@/,/! @END-FLYNNCONFIG@/d' ~/.Xresources > tmp; mv tmp ~/.Xresources
 	# append config to end of Xres
-	cat Xresources >> ~/.Xresources
+	cat config/Xres >> ~/.Xresources
 fi
 
 read -p " $sp Reconfigure bashrc? (Yy/*)" -n 1 -r
@@ -35,7 +35,7 @@ then
 	# remove current configuration if present
 	sed '/#@START-FLYNNCONFIG@/,/#@END-FLYNNCONFIG@/d' ~/.bashrc > tmp; mv tmp ~/.bashrc
 	# append config to end of bashrc
-	cat bashext >> ~/.bashrc
+	cat config/bash >> ~/.bashrc
 fi
 	
 
