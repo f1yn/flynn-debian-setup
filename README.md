@@ -24,10 +24,12 @@ These scripts are intended to automate the following tasks:
 
 ## How to use:
 
-If you are running a **CLEAN** install of Debian 8, run the `update.sh` script before proceeding.
+If you are running a **CLEAN** install of Debian 8, run the `update.sh` script before proceeding. It is recommended that you delete this file after using it, to reduce clutter.
 
 1. Clone the repository to the home directory using `git clone https://github.com/flynnham/flynn-debian-setup.git`.
 2. `cd` into the directory
 3. Execute `./init.sh`
 4. Reboot your computer.
 5. Behold the magic (that is in development).
+
+If you cannot create config files (due to whatever reason): reboot first then run `update.sh`.
