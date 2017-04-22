@@ -20,7 +20,7 @@ These scripts are intended to automate the following tasks:
 * Dynamically adds configuration to the `~/.Xresources` and `~/.bashrc` files from `config/xres` and `config/bash` respectively. 
 
 ### upgrade.sh
-•	Upgrades Debian from version 8 (jessie) to version 9 (stretch).
+* Upgrades Debian from version 8 (jessie) to version 9 (stretch).
 
 ## How to use:
 
