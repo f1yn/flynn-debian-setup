@@ -93,7 +93,7 @@ then
 	# ToDo: Add GTK theme autoinstall here
 	
 	
-	# implements - https://github.com/wbinnssmith/base16-oceanic-next/
+	# implements - https://github.com/hotice/webupd8/blob/master/install-google-fonts
 	# install google fonts if not present
 	_wgeturl="https://github.com/google/fonts/archive/master.tar.gz"
 	_gf="google-fonts"
