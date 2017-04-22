@@ -22,7 +22,7 @@ then
 	# remove current configuration if present
 	sed '/! @START-FLYNNCONFIG@/,/! @END-FLYNNCONFIG@/d' ~/.Xresources > tmp; mv tmp ~/.Xresources
 	# append config to end of Xres
-	cat config/Xres >> ~/.Xresources
+	cat config/xres >> ~/.Xresources
 fi
 
 read -p " $sp Reconfigure bashrc? (Yy/*)" -n 1 -r
