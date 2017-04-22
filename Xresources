@@ -1,3 +1,5 @@
+! @START-FLYNNCONFIG@
+
 ! Base16 OceanicNext
 ! Scheme: https:
 *.foreground: #C0C5CE
@@ -21,3 +23,5 @@
 *.color15: #D8DEE9
 *scrollBar: false
 URxvt.font: xft:Source Code Pro:size=10
+
+! @END-FLYNNCONFIG@
