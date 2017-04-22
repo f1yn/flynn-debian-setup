@@ -19,8 +19,12 @@ These scripts are intended to automate the following tasks:
 * Replaces `~/.i3/config` with `config/i3`.
 * Dynamically adds configuration to the `~/.Xresources` and `~/.bashrc` files from `config/xres` and `config/bash` respectively. 
 
+#upgrade.sh
+•	Upgrades Debian from version 8 (jessie) to version 9 (stretch).
+
 ## How to use:
 
 1. Clone the repository to the home directory using `git clone https://github.com/flynnham/flynn-debian-setup.git`.
 2. `cd` into the directory
-3. Execute `./init.sh`
+3. Change permissions of the script files via `chmod +x *.sh`
+4. Execute `./init.sh`
