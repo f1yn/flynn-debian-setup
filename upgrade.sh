@@ -28,5 +28,6 @@ then
 	sudo apt upgrade
 	sudo apt full-upgrade
 	
+	# reboot the system
 	sudo shutdown -r
 fi
