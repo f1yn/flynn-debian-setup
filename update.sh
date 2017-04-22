@@ -10,6 +10,7 @@ read -p "$sp Overwrite i3 config? (Yy/*) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
+	mkdir -p ~/.i3
 	cp config/i3 ~/.i3/config
 fi
 
@@ -18,6 +19,7 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	# backup incase stuff goes terribly wrong
+	touch ~/.Xresources # in case bash wants to get fussy about non-existing file
 	cp ~/.Xresources ~/Xresources.old
 
 	# remove current configuration if present
