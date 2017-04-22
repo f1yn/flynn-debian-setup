@@ -4,8 +4,9 @@
 # Flynn Buckingham - April 2017
 
 clear
+sp="###"
 
-read -p "$sp (Over)write i3 config? (Yy/*) " -n 1 -r
+read -p "$sp Overwrite i3 config? (Yy/*) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
