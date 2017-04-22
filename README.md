@@ -12,7 +12,8 @@ These scripts are intended to automate the following tasks:
 * Batch downloads Debian packages that I want on my system.
 * Downloads and builds the most recent version of [i3-gaps](https://github.com/Airblader/i3).
 * Downloads and installs all fonts available in the Google Fonts repository (adapted from [this project](https://github.com/hotice/webupd8/blob/master/install-google-fonts)).
-* []
+* Replaces `~/.i3/config` with config/i3
+* Dynamically adds configuration to the `~/.Xresources` and `~/.bashrc` files from `config/xres` and `config/bash` respectively. 
 
 ## How to use:
 
