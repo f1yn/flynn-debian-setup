@@ -19,7 +19,7 @@ These scripts are intended to automate the following tasks:
 * Replaces `~/.i3/config` with `config/i3`.
 * Dynamically adds configuration to the `~/.Xresources` and `~/.bashrc` files from `config/xres` and `config/bash` respectively. 
 
-#upgrade.sh
+### upgrade.sh
 •	Upgrades Debian from version 8 (jessie) to version 9 (stretch).
 
 ## How to use:
