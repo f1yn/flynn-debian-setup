@@ -4,10 +4,8 @@
 # Flynn Buckingham - April 2017
 
 clear
-echo "### Flynn's i3/URxvt environment installer ###"
-echo
-echo "This bash script will build, install and configure Flynn's default user environment. This script is intended to run on Debian Stretch (9) or higher. I (Flynn) take no responsibility for how your system responds to this script, nor am I responsible for any system issues as a result of running this script."
-echo
+printf "### Flynn's i3/URxvt environment installer ###\n\n"
+printf "This bash script will build, install and configure Flynn's default user environment. This script is intended to run on Debian Stretch (9) or higher. I (Flynn) take no responsibility for how your system responds to this script, nor am I responsible for any system issues as a result of running this script.\n\n"
 read -p "Are you sure you wish to continue? (Yy/*) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
@@ -98,7 +96,9 @@ then
 	fi
 
 	# ToDo: Add GTK theme autoinstall here
-
+	
+	
+	# implements - https://github.com/wbinnssmith/base16-oceanic-next/
 	# install google fonts if not present
 	_wgeturl="https://github.com/google/fonts/archive/master.tar.gz"
 	_gf="google-fonts"
