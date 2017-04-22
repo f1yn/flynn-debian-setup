@@ -80,15 +80,10 @@ then
 
 		printf " . Done!\n"
 
-		# build if and only if skipCheck is disabled
-		if [ $skipCheck ]; then
-			echo "$sp Skipping make install because not in live environment!" 
-		else
-			printf "$sp Installing i3-gaps into system. . ."
-			sudo make install &> i3build.log #aww yeah!
-			printf " Done!\n"
-		fi
-	
+		printf "$sp Installing i3-gaps into system. . ."
+		sudo make install &> i3build.log #aww yeah!
+		printf " Done!\n"
+
 	else
 		# i3 is installed and should be ignored - continue config
 		echo "ERROR: i3 is already installed. If not i3-gaps: please uninstall i3 if not correct version"
@@ -138,11 +133,5 @@ then
 	./update.sh
 
 	echo "$sp InStallation is complete. It is recmmended you reboot for all settings to take effect."
-	read -q "Would you lke to reboot now? (Yy/*)?" -n 1 -r
-	echo
-	if [[ $REPLY =~ ^[Yy$] ]]; then
-		exec sudo shutdown -r now
-	fi	
-
 fi	
 
