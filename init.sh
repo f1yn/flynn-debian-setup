@@ -58,7 +58,7 @@ then
 	
 	
 	#install nvm + nodejs
-	printf "$sp fetching and installing NVM. . ."
+	printf "$sp Fetching and installing NVM. . ."
 	curl https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash &> nvm.log
 	printf ' Done!\n'
 
@@ -72,13 +72,18 @@ then
 	
 	
 	
+	# download and extract PhpStorm version 10
+	cd ~ # go to home directory
+	echo "$sp Fetching and installing PhpStorm 10. . ."
+	curl -Lk "http://download.jetbrains.com/webide/PhpStorm-10.0.4.tar.gz" | tar -zx
+	echo 'Done!'
+	cd "$selfDir" # return to install directory
 	
 	# prepare i3 installation
-	skipCheck=false # ready for production
 	i3Dir="i3-master"
 
 	# if check enabled and package is not installed
-	if [ $skipCheck ] || [ ! $(dpkg-query -l | grep -q i3) ]; then
+	if [ ! $(dpkg-query -l | grep -q i3) ]; then
 		# if install directory exists then skip git download - this assumes
 		# build directory is complete. ToDo: add way to verify git interity
 		# without causing fatal exception
