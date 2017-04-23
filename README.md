@@ -12,6 +12,7 @@ These scripts are intended to automate the following tasks:
 
 ### init.sh
 * Batch downloads Debian packages that I want on my system.
+* Downloads and runs a NVM installation script, which then installs the latest stable release of [Node.js](https://github.com/nodejs/node).
 * Downloads and builds the most recent version of [i3-gaps](https://github.com/Airblader/i3).
 * Downloads and installs all fonts available in the Google Fonts repository (adapted from [this project](https://github.com/hotice/webupd8/blob/master/install-google-fonts)).
 
