@@ -12,6 +12,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	mkdir -p ~/.i3
 	cp config/i3 ~/.i3/config
+	# cp config/i3blocks ~/.i3blocks.conf
 fi
 
 read -p "$sp Reconfigure Xresources? (Yy/*)" -n 1 -r

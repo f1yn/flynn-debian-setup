@@ -20,6 +20,8 @@ then
 	
 	# install env/build dependancies
 	bdepends=(
+		build-essential
+		libssl-dev
 		wget
 		realpath
 		git
@@ -39,13 +41,24 @@ then
 		libxcb-xinerama0-dev
 		libxkbcommon-x11-dev
 	       	libstartup-notification0-dev
-	       	libxcb-randr0-dev 
+	       	libxcb-randr0-dev
 		libxcb-xrm0 
 		libxcb-xrm-dev
+		i3blocks
+		xdotool
 	)
 	sudo apt-get -qq install ${bdepends[@]}
 	printf " . Done!\n"
 
+	#install nvm + nodejs
+	wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+	
+	# configure to use on demand
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+	
+	nvm install stable # install dat latest goodness
+	
 	# goto base directory and prepare i3-gaps
 	selfDir=$(dirname "$(realpath "$-1")")
  	cd "$selfDir"
