@@ -50,19 +50,27 @@ then
 	sudo apt-get -qq install ${bdepends[@]}
 	printf " . Done!\n"
 
-	#install nvm + nodejs
-	wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+	# enter into installer directory
+	selfDir=$(dirname "$(realpath "$-1")")
+ 	cd "$selfDir"
 	
+	
+	#install nvm + nodejs
+	printf "$sp fetching and installing NVM. . ."
+	wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash &> nvm.log
+	printf ' Done!\n'
+
 	# configure to use on demand
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 	
-	nvm install stable # install dat latest goodness
 	
-	# goto base directory and prepare i3-gaps
-	selfDir=$(dirname "$(realpath "$-1")")
- 	cd "$selfDir"
-
+	printf "$sp Installing latest stable Node version. . ."
+	nvm install stable $> node.log # install dat latest goodness
+	printf ' Done!\n'
+	
+	
+	# prepare i3 installation
 	skipCheck=false # ready for production
 	i3Dir="i3-gaps-install"
 
