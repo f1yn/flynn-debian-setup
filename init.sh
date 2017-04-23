@@ -23,6 +23,7 @@ then
 		wget
 		realpath
 		git
+		gtk-chtheme
 		rxvt-unicode
 		libxcb-keysyms1-dev
 		libpango1.0-dev
