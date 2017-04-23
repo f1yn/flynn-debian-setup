@@ -23,7 +23,6 @@ then
 	bdepends=(
 		build-essential
 		libssl-dev
-		wget
 		realpath
 		gtk-chtheme
 		rxvt-unicode
@@ -40,8 +39,8 @@ then
 		libxkbcommon-dev
 		libxcb-xinerama0-dev
 		libxkbcommon-x11-dev
-	    libstartup-notification0-dev
-	    libxcb-randr0-dev
+		libstartup-notification0-dev
+		libxcb-randr0-dev
 		libxcb-xrm0 
 		libxcb-xrm-dev
 		i3blocks
@@ -123,24 +122,24 @@ then
 	
 	# implements - https://github.com/hotice/webupd8/blob/master/install-google-fonts
 	# install google fonts if not present
-	_gf="google-fonts"
 
 	if [ -d ~/.fonts/fonts-master/ofl/sourcecodepro ]; then
 		# skip installation
 		echo "$sp Google Fonts already installed - skipping installation"
 	else
 		# install google fonts
+	
+		_gf="google-fonts"
+		
 		echo "$sp Installing Google Fonts..."
-		rm -f $_gf.tar.gz
-
-		echo "Downloading and extracting the downloaded archive..."
+		# download and extract the fonts
 		curl -Lk "https://github.com/google/fonts/archive/master.tar.gz" | tar -zx
 
-		echo "Creating the /usr/share/fonts/truetype/$_gf folder"
+		# setup TrueType font directory
 		sudo mkdir -p /usr/share/fonts/truetype/$_gf
 
-		echo "Installing all .ttf fonts in /usr/share/fonts/truetype/$_gf"
-		find fonts-master/ -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; || return 1
+		# installs TrueType fonts into /usr/share/fonts/truetype/$_gf"
+		find fonts-master/ -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; &> font.log|| return 1
 
 		echo "Updating the font cache"
 		fc-cache -f > /dev/null
