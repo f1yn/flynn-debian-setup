@@ -10,6 +10,7 @@ read -p "Are you sure you wish to continue? (Yy/*) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
+	sudo echo "$sp AUTHORIZED $sp"
 	sp="###"
 
 	printf "$sp Downloading environment packages and build environment."
@@ -128,11 +129,8 @@ then
 		echo "$sp Installing Google Fonts..."
 		rm -f $_gf.tar.gz
 
-		echo "Connecting to Github server..."
-		wget $_wgeturl -O $_gf.tar.gz
-
-		echo "Extracting the downloaded archive..."
-		tar -xf $_gf.tar.gz
+		echo "Downloading and extracting the downloaded archive..."
+		wget -qO- $_wgeturl $_gf.tar.gz | tar -xf
 
 		echo "Creating the /usr/share/fonts/truetype/$_gf folder"
 		sudo mkdir -p /usr/share/fonts/truetype/$_gf
