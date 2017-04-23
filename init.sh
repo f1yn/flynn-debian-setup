@@ -25,7 +25,6 @@ then
 		libssl-dev
 		wget
 		realpath
-		git
 		gtk-chtheme
 		rxvt-unicode
 		libxcb-keysyms1-dev
@@ -57,9 +56,11 @@ then
  	cd "$selfDir"
 	
 	
+	
+	
 	#install nvm + nodejs
 	printf "$sp fetching and installing NVM. . ."
-	wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash &> nvm.log
+	curl https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash &> nvm.log
 	printf ' Done!\n'
 
 	# configure to use on demand
@@ -71,9 +72,11 @@ then
 	nvm install stable $> node.log # install dat latest goodness
 	
 	
+	
+	
 	# prepare i3 installation
 	skipCheck=false # ready for production
-	i3Dir="i3-gaps-install"
+	i3Dir="i3-master"
 
 	# if check enabled and package is not installed
 	if [ $skipCheck ] || [ ! $(dpkg-query -l | grep -q i3) ]; then
@@ -81,7 +84,7 @@ then
 		# build directory is complete. ToDo: add way to verify git interity
 		# without causing fatal exception
 		if [ ! -d "$i3Dir" ]; then 
-			git clone https://github.com/Airblader/i3.git "$i3Dir"
+			curl -Lk "https://github.com/Airblader/i3/archive/master.tar.gz" | tar -zx
 		fi
 	
 		# enter directory and begin building
@@ -113,12 +116,13 @@ then
 
 	fi
 
-	# ToDo: Add GTK theme autoinstall here
+	#reenter working directory
+	cd "$selfDir"
 	
+	# ToDo: Add GTK theme autoinstall here
 	
 	# implements - https://github.com/hotice/webupd8/blob/master/install-google-fonts
 	# install google fonts if not present
-	_wgeturl="https://github.com/google/fonts/archive/master.tar.gz"
 	_gf="google-fonts"
 
 	if [ -d ~/.fonts/fonts-master/ofl/sourcecodepro ]; then
@@ -130,20 +134,19 @@ then
 		rm -f $_gf.tar.gz
 
 		echo "Downloading and extracting the downloaded archive..."
-		curl $_wgeturl | tar -xf
-		echo "$(ls)"
+		curl -Lk "https://github.com/google/fonts/archive/master.tar.gz" | tar -zx
 
 		echo "Creating the /usr/share/fonts/truetype/$_gf folder"
 		sudo mkdir -p /usr/share/fonts/truetype/$_gf
 
 		echo "Installing all .ttf fonts in /usr/share/fonts/truetype/$_gf"
-		find $PWD/fonts-master/ -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; || return 1
+		find fonts-master/ -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; || return 1
 
 		echo "Updating the font cache"
 		fc-cache -f > /dev/null
 
-		# clean up, but only the .tar.gz, the user may need the folder
-		rm -f $_gf.tar.gz
+		# get rid of the fonts folder
+		rm fonts-master/
 
 		echo "Done."
 	fi
