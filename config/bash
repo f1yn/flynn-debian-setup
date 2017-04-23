@@ -129,7 +129,8 @@ alias reboot='shutdown -r now'
 
 
 # color options
-PS1="\[\033[1;34m\][\$(date +%H%M)][\u@\h:\w]$\[\033[0m\] "
+PS1="\[$(tput setaf 16)\]\u\[$(tput setaf 15)$(tput bold)\]@\h:\[$(tput sgr0)$(tput setaf 5)\] \w\[$(tput setaf 6)$(tput bold)\]\$\[$(tput sgr0)\] "
+
 
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
