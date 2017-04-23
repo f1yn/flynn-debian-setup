@@ -10,8 +10,8 @@ read -p "Are you sure you wish to continue? (Yy/*) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	sudo echo "$sp AUTHORIZED $sp"
 	sp="###"
+	sudo echo "$sp AUTHORIZED $sp"
 
 	printf "$sp Downloading environment packages and build environment."
 
@@ -41,11 +41,12 @@ then
 		libxkbcommon-dev
 		libxcb-xinerama0-dev
 		libxkbcommon-x11-dev
-	       	libstartup-notification0-dev
-	       	libxcb-randr0-dev
+	    libstartup-notification0-dev
+	    libxcb-randr0-dev
 		libxcb-xrm0 
 		libxcb-xrm-dev
 		i3blocks
+		curl
 		xdotool
 	)
 	sudo apt-get -qq install ${bdepends[@]}
@@ -66,9 +67,8 @@ then
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 	
 	
-	printf "$sp Installing latest stable Node version. . ."
+	echo "$sp Installing latest stable Node version. . ."
 	nvm install stable $> node.log # install dat latest goodness
-	printf ' Done!\n'
 	
 	
 	# prepare i3 installation
@@ -130,7 +130,8 @@ then
 		rm -f $_gf.tar.gz
 
 		echo "Downloading and extracting the downloaded archive..."
-		wget -qO- $_wgeturl $_gf.tar.gz | tar -xf
+		curl $_wgeturl | tar -xf
+		echo "$(ls)"
 
 		echo "Creating the /usr/share/fonts/truetype/$_gf folder"
 		sudo mkdir -p /usr/share/fonts/truetype/$_gf
