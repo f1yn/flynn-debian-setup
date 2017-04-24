@@ -6,17 +6,23 @@
 clear
 sp="###"
 
-read -p "$sp Overwrite i3/yabar config? (Yy/*) " -n 1 -r
-echo    # (optional) move to a new line
+read -p "$sp Overwrite i3 config? (Yy/*) " -n 1 -r
+echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	mkdir -p ~/.i3
 	cp config/i3 ~/.i3/config
+fi
+
+read -p "$sp Overwrite yabar config? (Yy/*) " -n 1 -r
+echo 
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
 	cp config/yabar ~/.yabar.conf
 fi
 
 read -p "$sp Reconfigure Xresources? (Yy/*)" -n 1 -r
-echo    # (optional) move to a new line
+echo 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	# backup incase stuff goes terribly wrong
@@ -30,7 +36,7 @@ then
 fi
 
 read -p "$sp Reconfigure bashrc? (Yy/*)" -n 1 -r
-echo    # (optional) move to a new line
+echo 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	# backup incase stuff goes terribly wrong
