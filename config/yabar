@@ -2,7 +2,7 @@
 
 bar-list = ["topbar"];
 topbar:{
-	font: "Source Sans Pro Semi Bold 12, FontAwesome Bold 9";
+	font: "Source Sans Pro Semi Bold 12, Material Icons 9";
 	block-list: [
 		"ya_diskspace", 
 		"ya_ws",
@@ -121,7 +121,7 @@ topbar:{
 		align: "right";
 		fixed-size: 60;
 		interval: 1;
-		internal-prefix: " ";
+		internal-prefix: " ";
 		internal-suffix: "%";
 		#internal-spacing: true;
 		foreground-color-rgb: 0xC0C5CE;
