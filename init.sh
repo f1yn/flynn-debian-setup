@@ -144,7 +144,7 @@ then
 		sudo mkdir -p /usr/share/fonts/truetype/$_gf
 
 		# installs TrueType fonts into /usr/share/fonts/truetype/$_gf"
-		find fonts-master/ -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; &> font.log|| return 1
+		find -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; &> font.log|| return 1
 
 		echo "Updating the font cache"
 		fc-cache -f > /dev/null
