@@ -15,6 +15,7 @@ These scripts are intended to automate the following tasks:
 * Downloads and runs a NVM installation [script](https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh), which then installs the latest stable release of [Node.js](https://github.com/nodejs/node).
 * Downloads and builds the most recent version of [i3-gaps](https://github.com/Airblader/i3).
 * Downloads and installs all fonts available in the Google Fonts repository (adapted from [this project](https://github.com/hotice/webupd8/blob/master/install-google-fonts)).
+* Installs the bundled version of [Google Material Icons](https://github.com/google/material-design-icons/).
 
 ### update.sh
 * Replaces `~/.i3/config` with `config/i3`.
