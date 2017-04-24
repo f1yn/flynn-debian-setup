@@ -6,6 +6,10 @@
 clear
 sp="###"
 
+# enter into script's directory
+selfDir=$(dirname "$(realpath "$-1")")
+cd "$selfDir"
+
 read -p "$sp Overwrite i3 config? (Yy/*) " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
