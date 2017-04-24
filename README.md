@@ -18,7 +18,7 @@ These scripts are intended to automate the following tasks:
 * Installs the bundled version of [Google Material Icons](https://github.com/google/material-design-icons/).
 
 ### update.sh
-* Replaces `~/.i3/config` with `config/i3`.
+* Replaces `~/.i3/config` with `config/i3`, and `~/.yabar.conf` with `config/yabar`.
 * Dynamically adds configuration to the `~/.Xresources` and `~/.bashrc` files from `config/xres` and `config/bash` respectively. 
 
 ### upgrade.sh
