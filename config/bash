@@ -125,8 +125,8 @@ unset color_cursor
 # aliases
 alias storm='~/PhpStorm-*/bin/phpstorm.sh'
 alias ui-update='~/flynn-theme/update.sh'
-alias reboot='shutdown -r now'
-
+alias reboot='systemctl reboot'
+alias lock='i3lock'
 
 # color options
 PS1="\[$(tput setaf 16)\]\u\[$(tput setaf 15)$(tput bold)\]@\h:\[$(tput sgr0)$(tput setaf 5)\] \w\[$(tput setaf 6)$(tput bold)\]\$\[$(tput sgr0)\] "
