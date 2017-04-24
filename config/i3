@@ -90,28 +90,25 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+set $_main main
+set $_browser browser
+set $_dev dev
+set $_misc misc
+
+bindsym $mod+1 workspace $_main
+bindsym $mod+2 workspace $_browser
+bindsym $mod+3 workspace $_dev
+bindsym $mod+4 workspace $_misc
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $_main
+bindsym $mod+Shift+2 move container to workspace $_browser
+bindsym $mod+Shift+3 move container to workspace $_dev
+bindsym $mod+Shift+4 move container to workspace $_misc
+
+# custom window settings
+# browser
+for_window [class="Firefox"] move window to workspace $_browser
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -154,8 +151,9 @@ set $statfg #C0C5CE
 set $URGENT #f99157
 
 bar {
-    position top
+        position top
 	status_command i3blocks
+	font pango:Source Sans Pro Semibold
 	colors {
 		background $statbg
 		focused_workspace  $statbg $statbg #ffffff
@@ -164,9 +162,8 @@ bar {
         	urgent_workspace   $statbg $statbg $URGENT
         	binding_mode       $statbg $statbg $statfg
 	}
+	height 24
 }
-
-# USER CONFIG - FLYNN
 
 bindsym $mod+shift+x exec i3lock
 
@@ -182,10 +179,10 @@ client.background	$bg
 
 
 # disable borders, set xbg  and enable gaps
-
-exec --no-startup-id xsetroot -solid "#1B2B34"
-
 for_window [class="^.*"] border pixel 0
+
+# set background
+exec --no-startup-id xsetroot -solid "#1B2B34"
 
 gaps outer 6
 gaps inner 16

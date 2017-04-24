@@ -1,7 +1,6 @@
 ! @START-FLYNNCONFIG@
 
 ! Base16 OceanicNext
-! Scheme: https:
 *.foreground: #C0C5CE
 *.background: #1B2B34
 *.cursorColor: #C0C5CE
