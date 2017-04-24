@@ -88,7 +88,7 @@ then
 		# build directory is complete. ToDo: add way to verify git interity
 		# without causing fatal exception
 		if [ ! -d "$i3Dir" ]; then 
-			git clone https://github.com/Airblader/i3.git "i3-master"
+			git clone https://github.com/Airblader/i3.git "$i3Dir"
 		fi
 	
 		# enter directory and begin building
@@ -144,7 +144,7 @@ then
 		sudo mkdir -p /usr/share/fonts/truetype/$_gf
 
 		# installs TrueType fonts into /usr/share/fonts/truetype/$_gf"
-		find -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/google-fonts/ \; &> font.log|| return 1
+		find -name "*.ttf" -exec sudo install -m644 {} /usr/share/fonts/truetype/$_gf/ \; &> font.log|| return 1
 
 		echo "Updating the font cache"
 		fc-cache -f > /dev/null
