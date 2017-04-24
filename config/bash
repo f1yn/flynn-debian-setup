@@ -135,7 +135,7 @@ PS1="\[$(tput setaf 16)\]\u\[$(tput setaf 15)$(tput bold)\]@\h:\[$(tput sgr0)$(t
 # term titlebar config
 case "$TERM" in
 	xterm*|rxvt*)
-	PROMPT_COMMAND='echo -ne "${USER}@${HOSTNAME}: ${PWD}"'
+	PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 	;;
 *)
 	::
