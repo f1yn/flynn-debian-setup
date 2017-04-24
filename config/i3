@@ -151,8 +151,7 @@ set $statfg #C0C5CE
 set $URGENT #f99157
 
 bar {
-        position top
-	status_command i3blocks
+        position bottom
 	font pango:Source Sans Pro Semibold
 	colors {
 		background $statbg
@@ -183,6 +182,9 @@ for_window [class="^.*"] border pixel 0
 
 # set background
 exec --no-startup-id xsetroot -solid "#1B2B34"
+
+#load yabar
+exec --no-startup-id yabar -c ~/.yabar.conf
 
 gaps outer 6
 gaps inner 16

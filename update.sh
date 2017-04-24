@@ -6,13 +6,13 @@
 clear
 sp="###"
 
-read -p "$sp Overwrite i3 config? (Yy/*) " -n 1 -r
+read -p "$sp Overwrite i3/yabar config? (Yy/*) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	mkdir -p ~/.i3
 	cp config/i3 ~/.i3/config
-	# cp config/i3blocks ~/.i3blocks.conf
+	cp config/yabar ~/.yabar.conf
 fi
 
 read -p "$sp Reconfigure Xresources? (Yy/*)" -n 1 -r

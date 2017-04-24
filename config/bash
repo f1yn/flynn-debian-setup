@@ -128,6 +128,7 @@ alias ui-update='~/flynn-theme/update.sh'
 alias reboot='systemctl reboot'
 alias lock='i3lock'
 alias restartx='sudo service lightdm restart'
+alias ybrestart='kill -SIGTERM "$(pidof yabar)"; sleep .05; yabar -c ~/.yabar.conf &'
 
 # prompt options
 PS1="\[$(tput setaf 16)\]\u\[$(tput setaf 15)$(tput bold)\]@\h:\[$(tput sgr0)$(tput setaf 5)\] \w\[$(tput setaf 6)$(tput bold)\]\$\[$(tput sgr0)\] "

@@ -43,7 +43,7 @@ then
 		libxcb-randr0-dev
 		libxcb-xrm0 
 		libxcb-xrm-dev
-		i3blocks
+		yabar
 		curl
 		xdotool
 	)

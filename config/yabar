@@ -1,0 +1,186 @@
+#It is just intended to show an example (specifically an example config that uses internal blocks) of what you can do using yabar.
+
+bar-list = ["topbar"];
+topbar:{
+	font: "Source Sans Pro Semi Bold 12, FontAwesome Bold 9";
+	block-list: [
+		"ya_diskspace", 
+		"ya_ws",
+		 "ya_title",
+		 "ya_date",
+		 "ya_diskusage",
+		 "ya_volume",
+		 "ya_uptime",
+		 "ya_cpu",
+		# "ya_thermal",
+		# "ya_brightness",
+		 "ya_bw",
+		 "ya_mem",
+		 "ya_disk" #,
+		# "ya_bat",
+		# "ya_wifi"
+	];
+	position: "top";
+	gap-horizontal: 10;
+	gap-vertical: 10;
+	#width: 1100;
+	height: 24;
+	background-color-rgb: 0x343D46;
+	slack-size: 4;
+	#border-size: 2;
+	#monitor: "LVDS1 HDMI1"; # get names from `xrandr`
+
+	# various examples for internal blocks:
+	# ya_ws: {
+	#	exec: "YABAR_WORKSPACE";
+	#	align: "center";
+	#	fixed-size: 40;
+	#	internal-option1: "        ";:
+	#}
+	ya_title: {
+		exec: "YABAR_TITLE";
+		align: "center";		
+		fixed-size: 500;
+		foreground-color-rgb: 0xFFFFFF;
+	}
+	ya_date:{
+		exec: "YABAR_DATE";
+		align: "left"; 
+		fixed-size: 200;
+		interval: 2;
+		internal-option1: "%a %d %b, %I:%M";
+		foreground-color-rgb: 0xC0C5CE;
+	}
+	ya_diskusage:{
+		exec: "YABAR_DISKSPACE";
+		align: "right";
+		fixed-size: 120;
+		interval: 10;
+		internal-prefix: " ";
+		# examples for this option:
+		# "/dev/sda1"           first partition of device sda
+		# "/dev/sdb"            all mounted partitions of device sdb
+		# "/dev/mapper/vgc-"    all mounted logical volumes of volume group vgc
+		# "/dev"                all mounted partitions / logical volumes
+		internal-option1: "/dev/sda";
+		foreground-color-rgb: 0xC0C5CE;
+	}
+	ya_volume:{
+		exec: "YABAR_VOLUME";
+		align: "right";
+		interval: 1;
+		internal-option1 : "default Master 0"; # device, mixer, index (separated by a space)
+		internal-option2 : "mapped"; # if set to 'mapped', use logarithmic scale (like `amixer -M` and `alsamixer`)
+		internal-option3 : " "; # characters to display when sound is on or off (separated by a space)
+		internal-suffix: "%";
+		foreground-color-rgb: 0xC0C5CE;
+	}
+	ya_mem:{
+		exec: "YABAR_MEMORY";
+		align: "right";
+		fixed-size: 70;
+		interval: 1;
+		internal-prefix: " ";
+		internal-spacing: true;
+		foreground-color-rgb: 0xC0C5CE;
+	}
+	# ya_thermal: {
+	#	exec: "YABAR_THERMAL";
+	#	align: "right";
+	#	fixed-size: 40;
+	#	interval: 1;
+	#	underline-color-rgb:0xE08E79;
+	#	internal-option1: "thermal_zone0"; # one of /sys/class/thermal/NAME/temp
+	#	internal-option2: "70; 0xFFFFFFFF; 0xFFED303C"; #Critical Temperature, fg, bg
+	#	internal-option3: "58; 0xFFFFFFFF; 0xFFF4A345"; #Warning Temperature, fg, bg
+	#	internal-prefix: " ";
+	#	#internal-spacing: true;
+	#}
+	#ya_brightness: {
+	#	exec: "YABAR_BRIGHTNESS";
+	#	align: "right";
+	#	fixed-size: 40;
+	#	interval: 1;
+	#	underline-color-rgb:0xBD1550;
+	#	internal-prefix: " ";
+	#	internal-option1: "intel_backlight"; # one of /sys/class/backlight/intel_backlight/brightness
+		#internal-spacing: true;
+	#}
+	ya_bw: {
+		exec: "YABAR_BANDWIDTH";
+		align: "right";
+		fixed-size: 110;
+		interval: 1;
+		internal-prefix: " ";
+		internal-option1: "eth0"; # "default" or network interface from `ifconfig` or `ip link`
+		internal-option2: " "; # characters to be placed before up/down data
+		foreground-color-rgb: 0xC0C5CE;
+	}
+	ya_cpu: {
+		exec: "YABAR_CPU";
+		align: "right";
+		fixed-size: 60;
+		interval: 1;
+		internal-prefix: " ";
+		internal-suffix: "%";
+		#internal-spacing: true;
+		foreground-color-rgb: 0xC0C5CE;
+	}
+	#ya_bat: {
+	#	exec: "YABAR_BATTERY";
+	#	align: "right";
+	#	fixed-size: 70;
+	#	interval: 1;
+	#	internal-suffix: "%";
+	#	internal-option1: "BAT0";
+	#	internal-option2: "    ";
+	#	#internal-spacing: true;
+	#}
+	ya_disk: {
+		exec: "YABAR_DISKIO";
+		align: "right";
+		fixed-size: 110;
+		interval: 1;
+		internal-prefix: " ";
+		internal-option1: "sda"; # name from `lsblk` or `ls /sys/class/block/`
+		internal-option2: " "; # characters to be placed before in/out data
+		#internal-spacing: true;
+		foreground-color-rgb: 0xC0C5CE;
+	}
+	ya_diskspace: {
+		exec: "YABAR_DISKSPACE";
+		align: "left";
+		fixed-size: 120;
+		interval: 10;
+		internal-prefix: " ";
+		# examples for this option:
+		# "/dev/sda1"           first partition of device sda
+		# "/dev/sdb"            all mounted partitions of device sdb
+		# "/dev/mapper/vgc-"    all mounted logical volumes of volume group vgc
+		# "/dev"                all mounted partitions / logical volumes
+		internal-option1: "/dev/sda";
+		foreground-color-rgb: 0xC0C5CE;
+	}
+	#ya_wifi: {
+	#	exec: "YABAR_WIFI";
+	#	internal-prefix: "  ";
+	#	internal-suffix: " ";
+	#	internal-option1: "wlan0";
+	#	variable-size: true;
+	#}
+	title: {
+		exec: "xtitle -s";
+		align: "center";
+		fixed-size: 350;
+		type: "persist";
+	}
+	# another example for an external block
+	date: {
+		exec: "date +'%a %d %b, %I:%M'";
+		align: "right";
+		fixed-size: 150;
+		type: "periodic";
+		interval: 1;
+	}
+}
+
