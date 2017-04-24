@@ -88,7 +88,7 @@ then
 		# build directory is complete. ToDo: add way to verify git interity
 		# without causing fatal exception
 		if [ ! -d "$i3Dir" ]; then 
-			curl -Lk "https://github.com/Airblader/i3/archive/master.tar.gz" | tar -zx
+			git clone https://github.com/Airblader/i3.git "i3-master"
 		fi
 	
 		# enter directory and begin building
