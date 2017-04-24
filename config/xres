@@ -22,6 +22,8 @@
 *.color14: #AB7967
 *.color15: #D8DEE9
 *scrollBar: false
-URxvt.font: xft:Source Code Pro:size=10
+urxvt.font: xft:Source Code Pro:size=10
+urxvt.fading: 50
+urxvt.fadeColor: #1B2B34
 
 ! @END-FLYNNCONFIG@
